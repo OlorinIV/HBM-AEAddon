@@ -10,6 +10,7 @@ import com.glodblock.github.hbmaeaddon.util.HBMFluidBridge;
 import com.hbm.inventory.fluid.FluidType;
 import com.hbm.inventory.fluid.Fluids;
 import com.hbm.inventory.fluid.tank.FluidTank;
+import com.hbm.tileentity.network.TileEntityPipeBaseNT;
 import com.hbm.uninos.GenNode;
 import com.hbm.uninos.UniNodespace;
 import com.hbm.util.Compat;
@@ -44,7 +45,7 @@ public class HBMFluidAcceptor implements IFluidStandardReceiverMK2 {
         // formerly subscribeToAllAround from IFluidUser
         TileEntity te = this.iHost.getTileEntity();
         for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-            this.trySubscribe(Fluids.NONE, te.getWorldObj(), te.xCoord, te.yCoord, te.zCoord, dir);
+            this.trySubscribe(Fluids.NONE, te.getWorldObj(), te.xCoord + dir.offsetX, te.yCoord + dir.offsetY, te.zCoord + dir.offsetZ, dir);
         }
     }
 
@@ -52,8 +53,9 @@ public class HBMFluidAcceptor implements IFluidStandardReceiverMK2 {
     // formerly trySubscribe from IFluidConnector
     public void trySubscribe(FluidType type, World world, int x, int y, int z, ForgeDirection dir) {
         var te = Compat.getTileStandard(world, x, y, z);
-        if (te instanceof IFluidConnectorMK2) {
-            GenNode node = UniNodespace.getNode(world, x, y, z, type.getNetworkProvider());
+        if (te instanceof TileEntityPipeBaseNT con) {
+            var pipeType = con.getType();
+            GenNode node = UniNodespace.getNode(world, x, y, z, pipeType.getNetworkProvider());
             if (node != null && node.net != null) {
                 node.net.addReceiver(this.iHost.getTileEntity());
             }
