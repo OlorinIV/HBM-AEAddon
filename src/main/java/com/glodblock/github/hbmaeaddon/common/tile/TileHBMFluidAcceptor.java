@@ -10,7 +10,7 @@ import com.glodblock.github.hbmaeaddon.common.me.HBMFluidAcceptor;
 import com.hbm.inventory.fluid.FluidType;
 import com.hbm.inventory.fluid.tank.FluidTank;
 
-import api.hbm.fluid.IFluidStandardReceiver;
+import api.hbm.fluidmk2.IFluidStandardReceiverMK2;
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.ticking.IGridTickable;
 import appeng.api.networking.ticking.TickRateModulation;
@@ -18,7 +18,7 @@ import appeng.api.networking.ticking.TickingRequest;
 import appeng.tile.grid.AENetworkTile;
 
 public class TileHBMFluidAcceptor extends AENetworkTile
-        implements IHBMFluidAcceptorHost, IFluidStandardReceiver, IGridTickable {
+        implements IHBMFluidAcceptorHost, IFluidStandardReceiverMK2, IGridTickable {
 
     private final HBMFluidAcceptor acceptor = new HBMFluidAcceptor(this.getProxy(), this);
     private boolean isLoaded = true;
