@@ -15,7 +15,6 @@ import com.hbm.uninos.GenNode;
 import com.hbm.uninos.UniNodespace;
 import com.hbm.util.Compat;
 
-import api.hbm.fluidmk2.IFluidConnectorMK2;
 import api.hbm.fluidmk2.IFluidStandardReceiverMK2;
 import appeng.api.config.Actionable;
 import appeng.api.networking.GridFlags;
@@ -45,7 +44,13 @@ public class HBMFluidAcceptor implements IFluidStandardReceiverMK2 {
         // formerly subscribeToAllAround from IFluidUser
         TileEntity te = this.iHost.getTileEntity();
         for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-            this.trySubscribe(Fluids.NONE, te.getWorldObj(), te.xCoord + dir.offsetX, te.yCoord + dir.offsetY, te.zCoord + dir.offsetZ, dir);
+            this.trySubscribe(
+                    Fluids.NONE,
+                    te.getWorldObj(),
+                    te.xCoord + dir.offsetX,
+                    te.yCoord + dir.offsetY,
+                    te.zCoord + dir.offsetZ,
+                    dir);
         }
     }
 
