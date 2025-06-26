@@ -20,7 +20,7 @@ import com.hbm.inventory.fluid.FluidType;
 import com.hbm.inventory.fluid.Fluids;
 import com.hbm.inventory.fluid.tank.FluidTank;
 
-import api.hbm.fluid.IFluidStandardSender;
+import api.hbm.fluidmk2.IFluidStandardSenderMK2;
 import appeng.api.config.Actionable;
 import appeng.api.networking.GridFlags;
 import appeng.api.networking.IGridHost;
@@ -47,7 +47,7 @@ import appeng.me.storage.NullInventory;
 import appeng.util.Platform;
 
 public class HBMFluidExposer
-        implements IGridTickable, IFluidStandardSender, IHBMFluidInventoryHost, IStorageMonitorable {
+        implements IGridTickable, IFluidStandardSenderMK2, IHBMFluidInventoryHost, IStorageMonitorable {
 
     public static final int TANK_SLOT = 6;
     public static final int TANK_CAPACITY = 64000;
@@ -176,13 +176,13 @@ public class HBMFluidExposer
         var z = tile.zCoord;
         for (var dir : this.iHost.getTargets()) {
             for (var type : this.availableFluid()) {
-                this.sendFluid(type, 0, w, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir);
+                this.tryProvide(type, 0, w, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir);
             }
         }
     }
 
     @Override
-    public void sendFluid(FluidType type, int pressure, World world, int x, int y, int z, ForgeDirection dir) {
+    public void tryProvide(FluidType type, int pressure, World world, int x, int y, int z, ForgeDirection dir) {
         var te = world.getTileEntity(x, y, z);
         if (te instanceof IGridHost gh) {
             try {
@@ -193,7 +193,7 @@ public class HBMFluidExposer
                 return;
             }
         }
-        IFluidStandardSender.super.sendFluid(type, pressure, world, x, y, z, dir);
+        IFluidStandardSenderMK2.super.tryProvide(type, pressure, world, x, y, z, dir);
     }
 
     private Collection<FluidType> availableFluid() {

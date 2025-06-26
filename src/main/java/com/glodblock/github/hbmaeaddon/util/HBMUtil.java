@@ -11,7 +11,7 @@ import com.hbm.items.machine.IItemFluidIdentifier;
 import com.hbm.items.machine.ItemFluidIcon;
 import com.hbm.items.machine.ItemInfiniteFluid;
 
-import api.hbm.fluid.IFillableItem;
+import api.hbm.fluidmk2.IFillableItem;
 
 public class HBMUtil {
 

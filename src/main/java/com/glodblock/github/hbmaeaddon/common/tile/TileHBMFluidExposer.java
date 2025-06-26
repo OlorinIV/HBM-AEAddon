@@ -10,7 +10,7 @@ import com.glodblock.github.hbmaeaddon.api.IHBMFluidExposerHost;
 import com.glodblock.github.hbmaeaddon.common.me.HBMFluidExposer;
 import com.hbm.inventory.fluid.tank.FluidTank;
 
-import api.hbm.fluid.IFluidStandardSender;
+import api.hbm.fluidmk2.IFluidStandardSenderMK2;
 import appeng.api.implementations.IPowerChannelState;
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.events.MENetworkChannelsChanged;
@@ -30,8 +30,8 @@ import appeng.tile.events.TileEventType;
 import appeng.tile.grid.AENetworkTile;
 import io.netty.buffer.ByteBuf;
 
-public class TileHBMFluidExposer extends AENetworkTile
-        implements IHBMFluidExposerHost, IGridTickable, IStorageMonitorable, IFluidStandardSender, IPowerChannelState {
+public class TileHBMFluidExposer extends AENetworkTile implements IHBMFluidExposerHost, IGridTickable,
+        IStorageMonitorable, IFluidStandardSenderMK2, IPowerChannelState {
 
     private final HBMFluidExposer exposer = new HBMFluidExposer(this.getProxy(), this);
 
