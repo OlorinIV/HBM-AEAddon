@@ -6,7 +6,7 @@ import java.util.List;
 import com.glodblock.github.nei.object.IRecipeExtractorLegacy;
 import com.glodblock.github.nei.object.OrderStack;
 import com.glodblock.github.nei.recipes.extractor.ExtractorUtil;
-import com.hbm.handler.nei.ChemplantRecipeHandler;
+import com.hbm.handler.nei.ChemicalPlantRecipeHandler;
 
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.IRecipeHandler;
@@ -28,7 +28,7 @@ public class ChemplantExtractor implements IRecipeExtractorLegacy {
     public List<OrderStack<?>> getInputIngredients(List<PositionedStack> rawInputs, IRecipeHandler recipe, int index) {
         TemplateRecipeHandler tRecipe = (TemplateRecipeHandler) recipe;
         List<OrderStack<?>> tmp = new ArrayList<>();
-        if (tRecipe.arecipes.get(index) instanceof ChemplantRecipeHandler.RecipeSet recipeSet) {
+        if (tRecipe.arecipes.get(index) instanceof ChemicalPlantRecipeHandler.RecipeSet recipeSet) {
             tmp = getInputIngredients(recipeSet.getIngredients());
         }
         return tmp;
@@ -39,7 +39,7 @@ public class ChemplantExtractor implements IRecipeExtractorLegacy {
             int index) {
         TemplateRecipeHandler tRecipe = (TemplateRecipeHandler) recipe;
         List<OrderStack<?>> tmp = new ArrayList<>();
-        if (tRecipe.arecipes.get(index) instanceof ChemplantRecipeHandler.RecipeSet recipeSet) {
+        if (tRecipe.arecipes.get(index) instanceof ChemicalPlantRecipeHandler.RecipeSet recipeSet) {
             tmp = getOutputIngredients(recipeSet.getOtherStacks());
         }
         return tmp;
@@ -47,7 +47,7 @@ public class ChemplantExtractor implements IRecipeExtractorLegacy {
 
     @Override
     public String getClassName() {
-        return ChemplantRecipeHandler.class.getName();
+        return ChemicalPlantRecipeHandler.class.getName();
     }
 
 }
