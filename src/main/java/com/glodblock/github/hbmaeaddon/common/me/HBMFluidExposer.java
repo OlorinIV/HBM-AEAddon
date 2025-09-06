@@ -51,18 +51,18 @@ public class HBMFluidExposer
 
     public static final int TANK_SLOT = 6;
     public static final int TANK_CAPACITY = 64000;
-    private final HBMFluidInventory storage = new HBMFluidInventory(this, TANK_SLOT, TANK_CAPACITY);
+    protected final HBMFluidInventory storage = new HBMFluidInventory(this, TANK_SLOT, TANK_CAPACITY);
     private final HBMFluidInventory config = new HBMFluidInventory(this, TANK_SLOT);
     private final FluidStack[] requireWork = new FluidStack[TANK_SLOT];
-    private final AENetworkProxy gridProxy;
+    protected final AENetworkProxy gridProxy;
     private final IHBMFluidExposerHost iHost;
     private final BaseActionSource mySource;
-    private boolean hasConfig = false;
+    protected boolean hasConfig = false;
     private int isWorking = -1;
-    private final MEMonitorPassThrough<IAEFluidStack> fluids = new MEMonitorPassThrough<IAEFluidStack>(
+    protected final MEMonitorPassThrough<IAEFluidStack> fluids = new MEMonitorPassThrough<IAEFluidStack>(
             new NullInventory<>(),
             StorageChannel.FLUIDS);
-    private boolean resetConfigCache = true;
+    protected boolean resetConfigCache = true;
 
     public HBMFluidExposer(AENetworkProxy networkProxy, IHBMFluidExposerHost ih) {
         this.gridProxy = networkProxy;
@@ -168,7 +168,7 @@ public class HBMFluidExposer
         }
     }
 
-    private void sendAround() {
+    protected void sendAround() {
         var tile = this.iHost.getTileEntity();
         var w = tile.getWorldObj();
         var x = tile.xCoord;
@@ -205,7 +205,7 @@ public class HBMFluidExposer
         return list;
     }
 
-    private boolean updateStorage() {
+    protected boolean updateStorage() {
         boolean didSomething = false;
         for (int x = 0; x < TANK_SLOT; ++x) {
             if (this.requireWork[x] != null) {

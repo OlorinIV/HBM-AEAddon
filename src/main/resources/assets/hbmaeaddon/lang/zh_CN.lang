@@ -4,6 +4,7 @@ fluid.liquid_he_unit=HE能量
 
 tile.hbmaeaddon.hbm_fluid_exposer.name=ME-HBM流体输出端口
 tile.hbmaeaddon.hbm_fluid_acceptor.name=ME-HBM流体输入端口
+tile.hbmaeaddon.hbm_fluid_exposer_hyper.name=ME-HBM流体超速输出端口
 tile.hbmaeaddon.energy_liquefier.name=ME-HE液化器
 tile.hbmaeaddon.energy_export.name=ME-HE输出端口
 
