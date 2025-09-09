@@ -38,8 +38,9 @@ public class Recipes {
                 'I',
                 ItemAndBlockHolder.INTERFACE);
         GameRegistry.addShapelessRecipe(
-            new ItemStack(BlockAndItems.HBM_EXPOSER_HYPER),
-            new Object[] {BlockAndItems.HBM_EXPOSER, Api.INSTANCE.definitions().materials().cardSuperSpeed().maybeStack(1).get()});
+                new ItemStack(BlockAndItems.HBM_EXPOSER_HYPER),
+                new Object[] { BlockAndItems.HBM_EXPOSER,
+                        Api.INSTANCE.definitions().materials().cardSuperSpeed().maybeStack(1).get() });
         GameRegistry.addShapedRecipe(
                 new ItemStack(BlockAndItems.HE_LIQUEFIER),
                 "ZXZ",

@@ -1,5 +1,11 @@
 package com.glodblock.github.hbmaeaddon.common.tile;
 
+import java.util.EnumSet;
+
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.events.MENetworkChannelsChanged;
 import appeng.api.networking.events.MENetworkEventSubscribe;
@@ -16,11 +22,6 @@ import appeng.tile.events.TileEventType;
 import com.glodblock.github.hbmaeaddon.common.me.HBMFluidExposerHyper;
 import com.hbm.inventory.fluid.tank.FluidTank;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.EnumSet;
 
 public class TileHBMFluidExposerHyper extends TileHBMFluidExposer {
 
