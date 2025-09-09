@@ -27,7 +27,7 @@ import io.netty.buffer.ByteBuf;
 public class TileHBMFluidExposerHyper extends TileHBMFluidExposer {
 
     private final HBMFluidExposerHyper exposer = new HBMFluidExposerHyper(this.getProxy(), this);
-    
+
     private static final int POWERED_FLAG = 1;
     private static final int CHANNEL_FLAG = 2;
     private static final int BOOTING_FLAG = 4;
