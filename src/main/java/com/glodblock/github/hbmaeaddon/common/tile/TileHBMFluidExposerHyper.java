@@ -6,6 +6,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import com.glodblock.github.hbmaeaddon.common.me.HBMFluidExposerHyper;
+import com.hbm.inventory.fluid.tank.FluidTank;
+
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.events.MENetworkChannelsChanged;
 import appeng.api.networking.events.MENetworkEventSubscribe;
@@ -19,15 +22,12 @@ import appeng.api.util.AECableType;
 import appeng.me.GridAccessException;
 import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
-import com.glodblock.github.hbmaeaddon.common.me.HBMFluidExposerHyper;
-import com.hbm.inventory.fluid.tank.FluidTank;
 import io.netty.buffer.ByteBuf;
 
 public class TileHBMFluidExposerHyper extends TileHBMFluidExposer {
 
     private final HBMFluidExposerHyper exposer = new HBMFluidExposerHyper(this.getProxy(), this);
-
-
+    
     private static final int POWERED_FLAG = 1;
     private static final int CHANNEL_FLAG = 2;
     private static final int BOOTING_FLAG = 4;
